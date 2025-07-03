@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace JornadaMilhasV1.Gerencidor;
+// Teste de Commit
 public class GerenciadorDeOfertas
 {
     private List<OfertaViagem> ofertaViagem = new List<OfertaViagem>();
