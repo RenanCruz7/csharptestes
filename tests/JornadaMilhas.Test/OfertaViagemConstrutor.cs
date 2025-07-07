@@ -6,8 +6,11 @@ namespace JornadaMilhas.Test
     {
         [Theory]
         [InlineData("", null, "2024-01-01", "2024-01-02", 0, false)]
-        [InlineData("São Paulo", "Rio de Janeiro", "2024-01-01", "2024-01-02", 100,true)]
-        public void RetornaOfertaValidaQuandoDadosValidos(string origem, string destino,string dataIda, string dataVolta, double preco, bool validacao)
+        [InlineData("OrigemTeste", "DestinoTeste", "2024-02-01", "2024-02-05", 100, true)]
+        [InlineData(null, "São Paulo", "2024-01-01", "2024-01-02", -1, false)]
+        [InlineData("Vitória", "São Paulo", "2024-01-01", "2024-01-01", 0, false)]
+        [InlineData("Rio de Janeiro", "São Paulo", "2024-01-01", "2024-01-02", -500, false)]
+        public void RetornaEhValidoDeAcordoComDadosDeEntrada(string origem, string destino,string dataIda, string dataVolta, double preco, bool validacao)
         {
             Rota rota = new Rota(origem, destino);
             Periodo periodo = new Periodo(DateTime.Parse(dataIda),DateTime.Parse(dataVolta));
