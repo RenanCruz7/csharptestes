@@ -4,13 +4,13 @@ namespace JornadaMilhas.Test
 {
     public class OfertaViagemConstrutor
     {
-        [Fact]
-        public void RetornaOfertaValidaQuandoDadosValidos()
+        [Theory]
+        [InlineData("", null, "2024-01-01", "2024-01-02", 0, false)]
+        [InlineData("São Paulo", "Rio de Janeiro", "2024-01-01", "2024-01-02", 100,true)]
+        public void RetornaOfertaValidaQuandoDadosValidos(string origem, string destino,string dataIda, string dataVolta, double preco, bool validacao)
         {
-            Rota rota = new Rota("São Paulo", "Rio de Janeiro");
-            Periodo periodo = new Periodo(new DateTime(2023, 10, 1), new DateTime(2023, 10, 10));
-            double preco = 100.0;
-            var validacao = true;
+            Rota rota = new Rota(origem, destino);
+            Periodo periodo = new Periodo(DateTime.Parse(dataIda),DateTime.Parse(dataVolta));
 
             OfertaViagem oferta = new OfertaViagem(rota, periodo, preco);
             
