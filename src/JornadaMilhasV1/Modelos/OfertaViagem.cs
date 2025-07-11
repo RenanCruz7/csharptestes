@@ -20,7 +20,12 @@ public class OfertaViagem: Valida
         set
         {
             desconto = value;
+            if (desconto >= Preco)
+            { 
+                Preco *= 0.3;
+            } else { 
             Preco -= desconto;
+            }
         }
     }
 
